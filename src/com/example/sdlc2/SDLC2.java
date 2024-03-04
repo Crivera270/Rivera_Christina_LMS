@@ -3,7 +3,7 @@ package com.example.sdlc2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SDLC2 {
+public class SDLC2 implements Checkable{
 
     /*
     Christina Rivera
@@ -18,31 +18,37 @@ public class SDLC2 {
 
 
 
-
     public static void main(String[] args) {
+        //C:\Users\chris\OneDrive\Documents\Custom Office Templates\Collection.txt
         /*main
         This method serves as the menu of the application, taking inputs and calling the correct class to complete the operation
         String array
         void*/
 
-        final ArrayList<String> books1 = new ArrayList<>();
-        books1.add("This is the beginning of the collection");
 
+
+
+        final ArrayList<Checkable> books1 = new ArrayList<>();
+
+       books1.add(new Book("0","This is the start of the collection",""));
+        //books1.add(0,title,);
         //menu start
         System.out.println("Welcome to the new Library Management System");
         System.out.println("Here are the menu choices:");
         System.out.println("1. ADD entry");
         System.out.println("2. REMOVE entry");
         System.out.println("3. LIST all entries");
-        System.out.println("4. EXIT");
+        System.out.println("4. Check out/Check in");
+        System.out.println("5. EXIT");
         System.out.println(" ");
         //menu end
+
 
 
         Scanner choice = new Scanner(System.in);
         int now = choice.nextInt();
 
-        while (now != 4) {
+        while (now != 5) {
             switch (now) {
                 case 1 ->
                     //add
@@ -58,6 +64,13 @@ public class SDLC2 {
                     //List all entries
                         Listit.readItem(books1);
 
+                case 4 -> {
+
+                    Book.pick(books1);
+                    System.out.println("You have checked the book out");
+
+                }
+
 
                 default -> {
                     System.out.println("That is not a valid choice");
@@ -70,7 +83,8 @@ public class SDLC2 {
             System.out.println("1. ADD entry");
             System.out.println("2. REMOVE entry");
             System.out.println("3. LIST all entries");
-            System.out.println("4. EXIT");
+            System.out.println("4. Check out/Check in");
+            System.out.println("5. EXIT");
             System.out.println(" ");
             //menu end
 
@@ -78,5 +92,18 @@ public class SDLC2 {
             now = choice.nextInt();
         }
         choice.close();
+
+
+    }
+
+
+    @Override
+    public boolean isCheckedIn() {
+        return false;
+    }
+
+    @Override
+    public void setCheckedIn(boolean checkedIn) {
+
     }
 }

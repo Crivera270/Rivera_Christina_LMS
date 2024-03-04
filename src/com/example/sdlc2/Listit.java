@@ -10,11 +10,12 @@ public class Listit extends SDLC2 {
   Listit
   This class functions as the list option in the menu.
   */
-    public static ArrayList<String> readItem(ArrayList<String> booktest) {
+    public static ArrayList<Checkable> readItem(ArrayList<Checkable> booktest) {
         /*readItem
         This method simply prints out the content of the array list when called.
         ArrayList
         String*/
+        System.out.println("Printing taking place....");
         System.out.println(booktest);
 
         return booktest;
